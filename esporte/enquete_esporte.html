@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquete sobre Esportes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .enquete {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .pergunta {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .opcao {
+            margin: 8px 0;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="enquete">
+        <h1>Enquete: Hábitos Esportivos</h1>
+        <form action="esporte_controle.php" method="POST">
+            <!-- Pergunta 1 (Input de texto) -->
+            <div class="pergunta">
+                <label for="nome">1. Qual é o seu nome?</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+
+            <!-- Pergunta 2 (Múltipla escolha - radio) -->
+            <div class="pergunta">
+                <p>2. Qual é o seu esporte favorito?</p>
+                <div class="opcao">
+                    <input type="radio" id="futebol" name="esporte_favorito" value="Futebol" required>
+                    <label for="futebol">Futebol</label>
+                </div>
+                <div class="opcao">
+                    <input type="radio" id="basquete" name="esporte_favorito" value="Basquete">
+                    <label for="basquete">Basquete</label>
+                </div>
+                <div class="opcao">
+                    <input type="radio" id="natacao" name="esporte_favorito" value="Natação">
+                    <label for="natacao">Natação</label>
+                </div>
+                <div class="opcao">
+                    <input type="radio" id="outro" name="esporte_favorito" value="Outro">
+                    <label for="outro">Outro</label>
+                </div>
+            </div>
+
+            <!-- Pergunta 3 (Checkbox - múltiplas escolhas) -->
+            <div class="pergunta">
+                <p>3. Quais esportes você pratica? (Marque todos que aplicam)</p>
+                <div class="opcao">
+                    <input type="checkbox" id="corrida" name="tipo_esporte[]" value="Corrida">
+                    <label for="corrida">Corrida</label>
+                </div>
+                <div class="opcao">
+                    <input type="checkbox" id="ciclismo" name="tipo_esporte[]" value="Ciclismo">
+                    <label for="ciclismo">Ciclismo</label>
+                </div>
+                <div class="opcao">
+                    <input type="checkbox" id="musculacao" name="tipo_esporte[]" value="Musculação">
+                    <label for="musculacao">Musculação</label>
+                </div>
+                <div class="opcao">
+                    <input type="checkbox" id="yoga" name="tipo_esporte[]" value="Yoga">
+                    <label for="yoga">Yoga</label>
+                </div>
+            </div>
+
+            <!-- Pergunta 4 (Input de texto) -->
+            <div class="pergunta">
+                <label for="email">4. Qual é o seu e-mail para receber resultados da enquete? (Opcional)</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <!-- Pergunta 5 (Escala de frequência) -->
+            <div class="pergunta">
+                <p>5. Com que frequência você pratica esportes?</p>
+                <div class="opcao">
+                    <input type="radio" id="diariamente" name="frequencia_esporte" value="Diariamente" required>
+                    <label for="diariamente">Diariamente</label>
+                </div>
+                <div class="opcao">
+                    <input type="radio" id="semanalmente" name="frequencia_esporte" value="Semanalmente">
+                    <label for="semanalmente">Semanalmente</label>
+                </div>
+                <div class="opcao">
+                    <input type="radio" id="mensalmente" name="frequencia_esporte" value="Mensalmente">
+                    <label for="mensalmente">Mensalmente</label>
+                </div>
+                <div class="opcao">
+                    <input type="radio" id="raramente" name="frequencia_esporte" value="Raramente">
+                    <label for="raramente">Raramente</label>
+                </div>
+            </div>
+
+            <button type="submit">Enviar Respostas</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('formEnquete').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado por participar da enquete! Seus dados foram registrados.'); 
+            // Em um caso real, enviaria para um servidor ou banco de dados.
+        });
+    </script>
+</body>
+</html>
